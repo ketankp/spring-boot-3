@@ -1,0 +1,19 @@
+version: "4.33.1"
+services:
+  demo-server:
+    container_name: demo-server
+    build:
+      context: demo-server
+      dockerfile: Dockerfile
+    image: demo-server:latest
+    ports:
+      - 8080:8080
+  mysqldb:
+    image: "mysql:latest"
+    ports:
+      - 3309:3309
+    environment:
+      MYSQL_DATABASE: basics
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
